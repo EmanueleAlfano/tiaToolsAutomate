@@ -1,0 +1,9 @@
+﻿DATA_BLOCK "<rep0>"
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+NON_RETAIN
+"SINGLE_PCT_TYPE_000"
+
+BEGIN
+END_DATA_BLOCK
+

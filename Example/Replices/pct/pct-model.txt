@@ -1,0 +1,11 @@
+REGION <rep1> PCTx1-<rep0>_Pxx (xx=01)
+    // Data transfer of SV_DB_PCT_SA (DB304) and SV_DB_TRUNK_CMD (DB305) in a struct HMI customized for Zurich Project
+
+    //REGION PCT-40FB02004_P01
+    "SCADA_SINGLE_PCT_TYPE_000"(EN_HMI := TRUE,
+                                PCT_IN := "<rep1>".Data.SA_PCT,
+                                TRUNK_SA := "SV_DB_TRUNK_SA"."<rep1>",
+                                D_CMD := "SV_DB_TRUNK_CMD"."<rep1>",
+                                SCADA := "<rep0>_P01");
+END_REGION
+

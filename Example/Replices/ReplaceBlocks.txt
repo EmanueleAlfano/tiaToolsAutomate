@@ -1,0 +1,990 @@
+REGION 48FB04001
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA1".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04001",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04001",
+                              SCADA := "48FB04001_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04001",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04001",
+                             SCADA := "48FB04001_M01");
+END_REGION
+
+REGION 48FB04002
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA2".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04002",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04002",
+                              SCADA := "48FB04002_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04002",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04002",
+                             SCADA := "48FB04002_M01");
+END_REGION
+
+REGION 48FB04003
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA30".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04003",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04003",
+                              SCADA := "48FB04003_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04003",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04003",
+                             SCADA := "48FB04003_M01");
+END_REGION
+
+REGION 48FB04004
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA31".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04004",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04004",
+                              SCADA := "48FB04004_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04004",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04004",
+                             SCADA := "48FB04004_M01");
+END_REGION
+
+REGION 48FB04005
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA32".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04005",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04005",
+                              SCADA := "48FB04005_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04005",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04005",
+                             SCADA := "48FB04005_M01");
+END_REGION
+
+REGION 48FB04006
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA33".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04006",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04006",
+                              SCADA := "48FB04006_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04006",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04006",
+                             SCADA := "48FB04006_M01");
+END_REGION
+
+REGION 48FB04007
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA36".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04007",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04007",
+                              SCADA := "48FB04007_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04007",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04007",
+                             SCADA := "48FB04007_M01");
+END_REGION
+
+REGION 48FB04008
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA37".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04008",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04008",
+                              SCADA := "48FB04008_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04008",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04008",
+                             SCADA := "48FB04008_M01");
+END_REGION
+
+REGION 48FB04009
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA38".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04009",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04009",
+                              SCADA := "48FB04009_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04009",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04009",
+                             SCADA := "48FB04009_M01");
+END_REGION
+
+REGION 48FB04010
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA39".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04010",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04010",
+                              SCADA := "48FB04010_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04010",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04010",
+                             SCADA := "48FB04010_M01");
+END_REGION
+
+REGION 48FB04011
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA42".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04011",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04011",
+                              SCADA := "48FB04011_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04011",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04011",
+                             SCADA := "48FB04011_M01");
+END_REGION
+
+REGION 48FB04012
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA43".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04012",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04012",
+                              SCADA := "48FB04012_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04012",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04012",
+                             SCADA := "48FB04012_M01");
+END_REGION
+
+REGION 48FB04013
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA44".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04013",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04013",
+                              SCADA := "48FB04013_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04013",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04013",
+                             SCADA := "48FB04013_M01");
+END_REGION
+
+REGION 48FB04014
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA45".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04014",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04014",
+                              SCADA := "48FB04014_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04014",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04014",
+                             SCADA := "48FB04014_M01");
+END_REGION
+
+REGION 48FB04015
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA48".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04015",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04015",
+                              SCADA := "48FB04015_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04015",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04015",
+                             SCADA := "48FB04015_M01");
+END_REGION
+
+REGION 48FB04016
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA49".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04016",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04016",
+                              SCADA := "48FB04016_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04016",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04016",
+                             SCADA := "48FB04016_M01");
+END_REGION
+
+REGION 48FB04017
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA52".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB04017",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB04017",
+                              SCADA := "48FB04017_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB04017",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB04017",
+                             SCADA := "48FB04017_M01");
+END_REGION
+
+REGION 48FB12001
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA55".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB12001",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB12001",
+                              SCADA := "48FB12001_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB12001",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB12001",
+                             SCADA := "48FB12001_M01");
+END_REGION
+
+REGION 48FB12002
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA56".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB12002",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB12002",
+                              SCADA := "48FB12002_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB12002",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB12002",
+                             SCADA := "48FB12002_M01");
+END_REGION
+
+REGION 48FB12003
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA57".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB12003",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB12003",
+                              SCADA := "48FB12003_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB12003",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB12003",
+                             SCADA := "48FB12003_M01");
+END_REGION
+
+REGION 48FB12004
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA58".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB12004",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB12004",
+                              SCADA := "48FB12004_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB12004",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB12004",
+                             SCADA := "48FB12004_M01");
+END_REGION
+
+REGION 48FB12005
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA59".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB12005",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB12005",
+                              SCADA := "48FB12005_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB12005",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB12005",
+                             SCADA := "48FB12005_M01");
+END_REGION
+
+REGION 48FB12006
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA60".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB12006",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB12006",
+                              SCADA := "48FB12006_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB12006",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB12006",
+                             SCADA := "48FB12006_M01");
+END_REGION
+
+REGION 48FB12007
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA61".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB12007",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB12007",
+                              SCADA := "48FB12007_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB12007",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB12007",
+                             SCADA := "48FB12007_M01");
+END_REGION
+
+REGION 48FB07001
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA90".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07001",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07001",
+                              SCADA := "48FB07001_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07001",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07001",
+                             SCADA := "48FB07001_M01");
+END_REGION
+
+REGION 48FB07002
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA91".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07002",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07002",
+                              SCADA := "48FB07002_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07002",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07002",
+                             SCADA := "48FB07002_M01");
+END_REGION
+
+REGION 48FB07003
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA120".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07003",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07003",
+                              SCADA := "48FB07003_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07003",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07003",
+                             SCADA := "48FB07003_M01");
+END_REGION
+
+REGION 48FB07004
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA121".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07004",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07004",
+                              SCADA := "48FB07004_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07004",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07004",
+                             SCADA := "48FB07004_M01");
+END_REGION
+
+REGION 48FB07005
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA122".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07005",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07005",
+                              SCADA := "48FB07005_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07005",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07005",
+                             SCADA := "48FB07005_M01");
+END_REGION
+
+REGION 48FB07006
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA123".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07006",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07006",
+                              SCADA := "48FB07006_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07006",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07006",
+                             SCADA := "48FB07006_M01");
+END_REGION
+
+REGION 48FB07007
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA126".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07007",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07007",
+                              SCADA := "48FB07007_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07007",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07007",
+                             SCADA := "48FB07007_M01");
+END_REGION
+
+REGION 48FB07008
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA127".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07008",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07008",
+                              SCADA := "48FB07008_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07008",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07008",
+                             SCADA := "48FB07008_M01");
+END_REGION
+
+REGION 48FB07009
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA128".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07009",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07009",
+                              SCADA := "48FB07009_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07009",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07009",
+                             SCADA := "48FB07009_M01");
+END_REGION
+
+REGION 48FB07010
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA129".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07010",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07010",
+                              SCADA := "48FB07010_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07010",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07010",
+                             SCADA := "48FB07010_M01");
+END_REGION
+
+REGION 48FB07011
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA130".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07011",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07011",
+                              SCADA := "48FB07011_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07011",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07011",
+                             SCADA := "48FB07011_M01");
+END_REGION
+
+REGION 48FB07012
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA131".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07012",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07012",
+                              SCADA := "48FB07012_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07012",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07012",
+                             SCADA := "48FB07012_M01");
+END_REGION
+
+REGION 48FB07013
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA134".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB07013",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB07013",
+                              SCADA := "48FB07013_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB07013",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB07013",
+                             SCADA := "48FB07013_M01");
+END_REGION
+
+REGION 48FB18001
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA137".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18001",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18001",
+                              SCADA := "48FB18001_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18001",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18001",
+                             SCADA := "48FB18001_M01");
+END_REGION
+
+REGION 48FB18002
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA140".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18002",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18002",
+                              SCADA := "48FB18002_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18002",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18002",
+                             SCADA := "48FB18002_M01");
+END_REGION
+
+REGION 48FB18003
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA141".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18003",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18003",
+                              SCADA := "48FB18003_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18003",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18003",
+                             SCADA := "48FB18003_M01");
+END_REGION
+
+REGION 48FB18004
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA142".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18004",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18004",
+                              SCADA := "48FB18004_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18004",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18004",
+                             SCADA := "48FB18004_M01");
+END_REGION
+
+REGION 48FB18005
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA145".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18005",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18005",
+                              SCADA := "48FB18005_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18005",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18005",
+                             SCADA := "48FB18005_M01");
+END_REGION
+
+REGION 48FB18006
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA146".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18006",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18006",
+                              SCADA := "48FB18006_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18006",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18006",
+                             SCADA := "48FB18006_M01");
+END_REGION
+
+REGION 48FB18007
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA149".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18007",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18007",
+                              SCADA := "48FB18007_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18007",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18007",
+                             SCADA := "48FB18007_M01");
+END_REGION
+
+REGION 48FB18008
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA150".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18008",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18008",
+                              SCADA := "48FB18008_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18008",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18008",
+                             SCADA := "48FB18008_M01");
+END_REGION
+
+REGION 48FB18009
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA170".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18009",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18009",
+                              SCADA := "48FB18009_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18009",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18009",
+                             SCADA := "48FB18009_M01");
+END_REGION
+
+REGION 48FB18010
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA171".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18010",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18010",
+                              SCADA := "48FB18010_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18010",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18010",
+                             SCADA := "48FB18010_M01");
+END_REGION
+
+REGION 48FB18011
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA172".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18011",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18011",
+                              SCADA := "48FB18011_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18011",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18011",
+                             SCADA := "48FB18011_M01");
+END_REGION
+
+REGION 48FB18012
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA175".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18012",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18012",
+                              SCADA := "48FB18012_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18012",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18012",
+                             SCADA := "48FB18012_M01");
+END_REGION
+
+REGION 48FB18013
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA176".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18013",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18013",
+                              SCADA := "48FB18013_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18013",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18013",
+                             SCADA := "48FB18013_M01");
+END_REGION
+
+REGION 48FB18014
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA200".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18014",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18014",
+                              SCADA := "48FB18014_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18014",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18014",
+                             SCADA := "48FB18014_M01");
+END_REGION
+
+REGION 48FB18015
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA201".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18015",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18015",
+                              SCADA := "48FB18015_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18015",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18015",
+                             SCADA := "48FB18015_M01");
+END_REGION
+
+REGION 48FB18016
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA202".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18016",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18016",
+                              SCADA := "48FB18016_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18016",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18016",
+                             SCADA := "48FB18016_M01");
+END_REGION
+
+REGION 48FB18017
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA203".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18017",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18017",
+                              SCADA := "48FB18017_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18017",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18017",
+                             SCADA := "48FB18017_M01");
+END_REGION
+
+REGION 48FB18018
+    
+    // Data transfer of SV_DB_CONVEYOR_SA (DB320) and SV_DB_CONVEYOR_CMD (DB321) in a struct HMI customized for Zurich Project
+    
+    "SCADA_CONVEYOR_TYPE_000"(EN_HMI := TRUE,
+                              BUFFERING:="UTENZA204".Conveyor.Data.IN.EnableBuffering,
+                              D_STATUS := "SV_DB_CONVEYOR_SA"."48FB18018",
+                              D_CMD := "SV_DB_CONVEYOR_CMD"."48FB18018",
+                              SCADA := "48FB18018_A01");
+    
+    // Data transfer of DB_Drv-Sew_MVG_Telegram_IN (DB400) and DB_Drv-Sew_MVG_Telegram_OUT (DB401) in a struct HMI customized for Zurich Project
+    
+    "SCADA_SEW_MVG_TYPE_000"(EN_HMI := TRUE,
+                             DRIVE_ST := "DB_Drv-Sew_MVG_Telegram_IN"."48FB18018",
+                             DRIVE_CMD := "DB_Drv-Sew_MVG_Telegram_OUT"."48FB18018",
+                             SCADA := "48FB18018_M01");
+END_REGION
+
