@@ -12,11 +12,12 @@ def loadReplace(f_path):
     repLists = []
     for line in f:
         repLine = line.strip('\n')
-        if repLine[0] == "/" or repLine[0] == "#":
-            continue
-        repLine = repLine.replace("\n", "")
-        line_list = repLine.split("\t")
-        repLists.append(line_list)
+        if len(repLine) > 0:
+            if repLine[0] == "/" or repLine[0] == "#":
+                continue
+            repLine = repLine.replace("\n", "")
+            line_list = repLine.split("\t")
+            repLists.append(line_list)
     f.close()
     return repLists
 
