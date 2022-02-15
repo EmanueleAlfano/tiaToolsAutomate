@@ -1,0 +1,5 @@
+// find      replace
+really	'Zii stai a esagerare'
+
+lips	#Ormai è evidente#
+too?	$too ?$

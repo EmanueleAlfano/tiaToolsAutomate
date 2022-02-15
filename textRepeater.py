@@ -9,7 +9,7 @@ outPath = "Replace.txt"
 def help():
     print("Error argv, argument passed was:")
     print(sys.argv)
-    print("Correct usage:\n\t./textRepeater <model.txt path> <replace.txt path> [out.txt path]")
+    print("Correct usage:\n\ttextRepeater <model.txt path> <replace.txt path> [out.txt path]")
     exit(-1)
 
 
@@ -24,8 +24,8 @@ if __name__ == '__main__':
 
     ## Command exe
     # Data Load
-    textModel = utilsLib.loadModel(modelTextPath)
-    repLists = utilsLib.loadReplace(replaceListPath)
+    textModel = utilsLib.loadText(modelTextPath)
+    repLists = utilsLib.loadDoubleList(replaceListPath)
     # Execute Replace
     out = utilsLib.generateBlock(textModel, repLists)
     # Save

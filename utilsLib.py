@@ -1,13 +1,16 @@
 import os
 
-def loadModel(f_path):
+
+def loadText(f_path):
     f = open(f_path, "r")
     textModel = f.read()
     f.close()
     return textModel
 
 
-def loadReplace(f_path):
+# Carica il file facendo di ogni linea una lista, e ogni 'tab' nella linea
+# una sotto lista, considera '#' e '/' a inizio riga come commento
+def loadDoubleList(f_path):
     f = open(f_path, "r")
     repLists = []
     for line in f:
@@ -21,6 +24,7 @@ def loadReplace(f_path):
     f.close()
     return repLists
 
+
 def saveString(path_write, outStr):
     text_file = open(path_write, "w")
     n = text_file.write(outStr)
@@ -28,6 +32,7 @@ def saveString(path_write, outStr):
 
     if (len(outStr) != n):
         print("ATTENTION, not all string was saving in the '" + path_write + "' file")
+
 
 def generateBlock(textModel, repLists):
     out = ""
@@ -40,23 +45,15 @@ def generateBlock(textModel, repLists):
     print(out)
     return out
 
+
 """
 repLists := Lista di liste
         <rep0> = Nome file E primo replace, nel file modello e replace tenere conto di ciò 
 """
-def generateDbs(textModel, repLists, outPathDir):
-    # Files save
-    os.makedirs(outPathDir, exist_ok=True)
-    print("The '" + outPathDir + "' directory is created!")
-
-    for repLine in repLists:
-        newText = textModel
-        for i in range(len(repLine)):
-            repStr = "<rep{index}>".format(index=i)
-            newText = newText.replace(repStr, repLine[i])
-        print(newText)
-        print("#"*15)
-        saveString(outPathDir + "/" + repLine[0] + ".db", newText)
-    print("§" * 15)
 
 
+def generateFindReplace(textToReplace, frLists):
+    out = textToReplace
+    for sList in frLists:
+        out = out.replace(sList[0],sList[1])
+    return out
