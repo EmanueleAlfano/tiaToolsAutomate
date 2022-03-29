@@ -37,7 +37,7 @@ if __name__ == '__main__':
     endIndex = utilsLib.get_trailing_number(holeList[-1][1])
 
     filledList = []
-    for i in range(startIndex, endIndex):
+    for i in range(startIndex, endIndex + 1):
         if i != utilsLib.get_trailing_number(holeList[nextSetPtr][1]):
             filledList.append(baseText + str(i))
         else:
@@ -45,4 +45,6 @@ if __name__ == '__main__':
             nextSetPtr += 1
 
     # Save
-    utilsLib.saveString(outPath, filledList)
+    out = "\n".join(filledList)
+    print(out)
+    utilsLib.saveString(outPath, out)
