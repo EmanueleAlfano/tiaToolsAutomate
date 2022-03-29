@@ -3,7 +3,7 @@ import sys
 import utilsLib
 
 # Default variable
-outPath = "findReplaced.txt"
+outPath = "findReplaced-gen.txt"
 
 
 def help():

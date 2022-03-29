@@ -1,4 +1,5 @@
 import os
+import re
 
 
 def loadText(f_path):
@@ -46,14 +47,13 @@ def generateBlock(textModel, repLists):
     return out
 
 
-"""
-repLists := Lista di liste
-        <rep0> = Nome file E primo replace, nel file modello e replace tenere conto di ciò 
-"""
-
-
 def generateFindReplace(textToReplace, frLists):
     out = textToReplace
     for sList in frLists:
-        out = out.replace(sList[0],sList[1])
+        out = out.replace(sList[0], sList[1])
     return out
+
+
+def get_trailing_number(s):
+    m = re.search(r'\d+$', s)
+    return int(m.group()) if m else None

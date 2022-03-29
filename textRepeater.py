@@ -3,7 +3,7 @@ import sys
 import utilsLib
 
 # Default variable
-outPath = "Replace.txt"
+outPath = "textReplace-gen.txt"
 
 
 def help():
