@@ -10,8 +10,9 @@ def help():
     print("Error argv, argument passed was:")
     print(sys.argv)
     print("Correct usage:\n\tfindReplace <baseText> <findReplaceList.txt path> [out.txt path]")
-    print("findReplaceList.txt := First Columns DifferentName; Second Columns indexList, MUST be ordered")
+    print("findReplaceList.txt := First Columns DifferentName; Second Columns have to contain at the end of the string the index")
     exit(-1)
+
 
 if __name__ == '__main__':
     # Input Read
