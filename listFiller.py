@@ -13,11 +13,6 @@ def help():
     print("findReplaceList.txt := First Columns DifferentName; Second Columns indexList, MUST be ordered")
     exit(-1)
 
-# set
-def sortLogic(s):
-    return utilsLib.get_trailing_number(s[1])
-
-
 if __name__ == '__main__':
     # Input Read
     if (len(sys.argv) < 3):
