@@ -11,7 +11,7 @@ def loadText(f_path):
 
 # Carica il file facendo di ogni linea una lista, e ogni 'tab' nella linea
 # una sotto lista, considera '#' e '/' a inizio riga come commento
-def loadDoubleList(f_path):
+def loadDoubleList(f_path, minColon=0):
     f = open(f_path, "r")
     repLists = []
     for line in f:
@@ -21,7 +21,8 @@ def loadDoubleList(f_path):
                 continue
             repLine = repLine.replace("\n", "")
             line_list = repLine.split("\t")
-            repLists.append(line_list)
+            if len(line_list) >= minColon or minColon == 0:
+                repLists.append(line_list)
     f.close()
     return repLists
 

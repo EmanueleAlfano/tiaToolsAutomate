@@ -28,7 +28,7 @@ if __name__ == '__main__':
         outPath = sys.argv[3]
 
     # Data Load
-    holeList = utilsLib.loadDoubleList(replaceListPath)
+    holeList = utilsLib.loadDoubleList(replaceListPath, minColon=2)
     holeList.sort(key=lambda elem: utilsLib.get_trailing_number(elem[1]))
 
     # Command Exe
