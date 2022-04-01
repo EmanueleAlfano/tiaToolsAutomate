@@ -3,13 +3,13 @@ import sys
 import utilsLib
 
 # Default variable
-outPath = "findReplaced-gen.txt"
+outPath = "findReplaced_gen.txt"
 
 
 def help():
     print("Error argv, argument passed was:")
     print(sys.argv)
-    print("Correct usage:\n\tfindReplace <source.txt path> <findReplaceList.txt path> [out.txt path]")
+    print("Correct usage:\n\tfindReplace.py <source.txt path> <findReplaceList.txt path> [out.txt path]")
     exit(-1)
 
 

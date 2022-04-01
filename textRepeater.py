@@ -3,13 +3,13 @@ import sys
 import utilsLib
 
 # Default variable
-outPath = "textReplace-gen.txt"
+outPath = "textReplace_gen.txt"
 
 
 def help():
     print("Error argv, argument passed was:")
     print(sys.argv)
-    print("Correct usage:\n\ttextRepeater <model.txt path> <replace.txt path> [out.txt path]")
+    print("Correct usage:\n\ttextRepeater.py <model.txt path> <replace.txt path> [out.txt path]")
     exit(-1)
 
 
