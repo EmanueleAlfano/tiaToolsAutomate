@@ -10,7 +10,6 @@ import sys
 import utilsLib
 import excelFunction as ex
 
-
 # Default variable
 outPath = "CompileTable_gen.xlsx"
 
@@ -27,20 +26,19 @@ if __name__ == '__main__':
     if (len(sys.argv) < 3):
         help()
     IOexcelPath = sys.argv[1]
-    parametricExcelPath = sys.argv[2]
+    ParExcelPath = sys.argv[2]
     if (len(sys.argv) >= 4):
         outPath = sys.argv[3]
 
     # Sheet Data Load
-    ex.sheetLoad(IOexcelPath, parametricExcelPath)
+    ex.sheetLoad(IOexcelPath, ParExcelPath)
 
-    #########################
-    # Table Generation Zone #
-    #########################
+    ##################################
+    # Table Generation and Save Zone #
+    ##################################
 
-    # Trunk Table Generate and Save
-    ex.trunkTableGen().to_excel(outPath, index=False, header=True, sheet_name='DigIn-TrunkPCT')
-
-
-    # Conv Data Sheet Generate
-    ex.digIn_PctTrunkRegion()
+    with ex.pd.ExcelWriter(outPath, mode='w') as writer:
+        # Trunk Table Generate and Save
+        ex.trunkTableGen().to_excel(writer, index=False, header=True, sheet_name='TrunkData-gen')
+        # Conv Data Sheet Generate
+        ex.digIn_PctTrunkRegion().to_excel(writer, index=False, header=True, sheet_name='DigIn-TrunkPCT')
