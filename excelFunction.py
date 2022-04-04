@@ -1,3 +1,5 @@
+import math
+
 import pandas as pd
 import re
 
@@ -17,7 +19,9 @@ TrunkList = []
 
 # Out data
 TrunkData = None
-TrunkPCTDIG_IN = None
+TrunkPCT_DIG_IN = None
+InputConvSewMoviGear_DIGIN = None
+
 
 def sheetLoad(IOexcelPath, parametricExcelPath):
     global RemoteData, IOData, ParData, TrunkList
@@ -48,7 +52,7 @@ def sheetLoad(IOexcelPath, parametricExcelPath):
     #########################
 
     ParSheet = pd.read_excel(parametricExcelPath, sheet_name=0, header=0)
-    ParData = ParSheet[['conv', 'utenza', 'trunk', 'Linea', 'tipo', 'Daisy Chain', 'PCT', 'IsConveyor', 'Id_Obj']]
+    ParData = ParSheet[['conv', 'utenza', 'trunk', 'Linea', 'tipo', 'Daisy Chain MCP','Daisy Chain CAL', 'PCT', 'IsConveyor', 'Id_Obj']]
 
     TrunkList = list(ParSheet['trunk'].drop_duplicates(keep='first'))
 
@@ -68,10 +72,10 @@ def trunkTableGen():
     return TrunkData
 
 
-def signalFound(descriptionList, convName):
-    global IOData, TrunkPCTDIG_IN
+def signalFound(descriptionList, IDLINEfilter):
+    global IOData
     swTagList = []
-    rows = IOData[['ID LINE COMPONENT', 'SW TAG', 'SIGNAL DESCRIPTION']].loc[IOData['ID LINE COMPONENT'] == convName]
+    rows = IOData[['ID LINE COMPONENT', 'SW TAG', 'SIGNAL DESCRIPTION']].loc[IOData['ID LINE COMPONENT'] == IDLINEfilter]
     for description in descriptionList:
         tag = "0"
         try:
@@ -84,7 +88,7 @@ def signalFound(descriptionList, convName):
 
 
 def digIn_PctTrunkRegion():
-    global ParData, RemoteData, TrunkData
+    global ParData, RemoteData, TrunkData,TrunkPCT_DIG_IN
     col = ['trunk', 'SelAuto', 'Jog', 'Reset', 'Stop', 'DP_com', 'conv']
     DIGIN_Tr_PCT = []
 
@@ -95,8 +99,8 @@ def digIn_PctTrunkRegion():
         conv = ParData[['conv']].loc[ParData['trunk'] == trunk].loc[ParData['PCT'].notnull()]
 
         # Se il trunk non ha associata una PCT è vuota
-        if(len(conv) == 0) :
-            print('noPCT')
+        if (len(conv) == 0):
+            #print('noPCT')
             DIGIN_Tr_PCT.append([trunk, 0, 0, 0, 0, 0, "No-Conv"])
             continue
 
@@ -118,13 +122,45 @@ def digIn_PctTrunkRegion():
         except Exception as e:
             print(e)
 
-
     # Creazione digIn_PctTrunkRegion table
-    TrunkPCTDIG_IN = pd.DataFrame(DIGIN_Tr_PCT, columns=col)
-    print(TrunkPCTDIG_IN)
+    TrunkPCT_DIG_IN = pd.DataFrame(DIGIN_Tr_PCT, columns=col)
+    return TrunkPCT_DIG_IN
 
-    return TrunkPCTDIG_IN
 
 def InputCONVEYOR_SEW_MOVIGEAR_Region():
-    global ParData, RemoteData
-    col = ['trunk', 'SelAuto', 'Jog', 'Reset', 'Stop', 'DP_com', 'conv']
+    global ParData, RemoteData, IOData
+    # Ph= fotocellula
+    col = ['utenza', 'conveyor', 'DP_com', 'safetyBreak', 'Ph1', 'Ph2', 'GeneralSwitch', 'DaisyChainStatus',
+           'DaisyChainAllarm']
+
+    GeneralSwitchTag = "0"
+
+    try:
+        Row = IOData.loc[IOData['SIGNAL DESCRIPTION'].str.contains('400VAC power supply: Disconnector Switch Status') == True]
+        GeneralSwitchTag = "\"" + Row['SW TAG'].iat[0] + "\""
+    except Exception as e:
+        print(e)
+
+    print(GeneralSwitchTag)
+
+    #SEWtable=[]
+    a = ParData.loc[ParData['utenza'].notna()]
+    print(a)
+
+    for index,Row in a.iterrows() :
+        print(index,Row['Daisy Chain MCP'])
+        print(type(Row), type(Row['Daisy Chain MCP']))
+
+        RowMount = [Row['utenza'],Row['conv']]
+
+        print(math.isnan(Row['Daisy Chain MCP']))
+        if  not math.isnan(Row['Daisy Chain MCP']):
+            print('ok')
+        else:
+            print('no ok')
+
+
+
+    # InputConvSewMoviGear_DIGIN = pd.DataFrame(, columns=col)
+
+
