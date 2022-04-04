@@ -76,7 +76,7 @@ def signalFound(descriptionList, convName):
         tag = "0"
         try:
             signalRow = rows.loc[IOData['SIGNAL DESCRIPTION'].str.contains(description) == True]
-            tag = signalRow['SW TAG'].iat[0]
+            tag = "\"" + signalRow['SW TAG'].iat[0] + "\""
         except Exception as e:
             print(e)
         swTagList.append(tag)
@@ -84,7 +84,7 @@ def signalFound(descriptionList, convName):
 
 
 def digIn_PctTrunkRegion():
-    global ParData, TrunkData
+    global ParData, RemoteData, TrunkData
     col = ['trunk', 'SelAuto', 'Jog', 'Reset', 'Stop', 'DP_com', 'conv']
     DIGIN_Tr_PCT = []
 
@@ -124,3 +124,7 @@ def digIn_PctTrunkRegion():
     print(TrunkPCTDIG_IN)
 
     return TrunkPCTDIG_IN
+
+def InputCONVEYOR_SEW_MOVIGEAR_Region():
+    global ParData, RemoteData
+    col = ['trunk', 'SelAuto', 'Jog', 'Reset', 'Stop', 'DP_com', 'conv']
