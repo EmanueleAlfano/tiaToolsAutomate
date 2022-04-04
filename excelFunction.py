@@ -52,7 +52,9 @@ def sheetLoad(IOexcelPath, parametricExcelPath):
     #########################
 
     ParSheet = pd.read_excel(parametricExcelPath, sheet_name=0, header=0)
-    ParData = ParSheet[['conv', 'utenza', 'trunk', 'Linea', 'tipo', 'Daisy Chain MCP','Daisy Chain CAL', 'PCT', 'IsConveyor', 'Id_Obj']]
+    ParData = ParSheet[
+        ['conv', 'utenza', 'trunk', 'Linea', 'tipo', 'Daisy Chain MCP', 'Daisy Chain CAL', 'PCT', 'IsConveyor',
+         'Id_Obj']]
 
     TrunkList = list(ParSheet['trunk'].drop_duplicates(keep='first'))
 
@@ -72,10 +74,10 @@ def trunkTableGen():
     return TrunkData
 
 
-def signalFound(descriptionList, IDLINEfilter):
+def signalFound(descriptionList, IdLINEfilter):
     global IOData
     swTagList = []
-    rows = IOData[['ID LINE COMPONENT', 'SW TAG', 'SIGNAL DESCRIPTION']].loc[IOData['ID LINE COMPONENT'] == IDLINEfilter]
+    rows = IOData.loc[IOData['ID LINE COMPONENT'].str.contains(IdLINEfilter) == True]
     for description in descriptionList:
         tag = "0"
         try:
@@ -88,7 +90,7 @@ def signalFound(descriptionList, IDLINEfilter):
 
 
 def digIn_PctTrunkRegion():
-    global ParData, RemoteData, TrunkData,TrunkPCT_DIG_IN
+    global ParData, RemoteData, TrunkData, TrunkPCT_DIG_IN
     col = ['trunk', 'SelAuto', 'Jog', 'Reset', 'Stop', 'DP_com', 'conv']
     DIGIN_Tr_PCT = []
 
@@ -100,7 +102,7 @@ def digIn_PctTrunkRegion():
 
         # Se il trunk non ha associata una PCT è vuota
         if (len(conv) == 0):
-            #print('noPCT')
+            # print('noPCT')
             DIGIN_Tr_PCT.append([trunk, 0, 0, 0, 0, 0, "No-Conv"])
             continue
 
@@ -128,39 +130,60 @@ def digIn_PctTrunkRegion():
 
 
 def InputCONVEYOR_SEW_MOVIGEAR_Region():
-    global ParData, RemoteData, IOData
+    global ParData, RemoteData, IOData, InputConvSewMoviGear_DIGIN
     # Ph= fotocellula
     col = ['utenza', 'conveyor', 'DP_com', 'safetyBreak', 'Ph1', 'Ph2', 'GeneralSwitch', 'DaisyChainStatus',
            'DaisyChainAllarm']
 
-    GeneralSwitchTag = "0"
+    SEWtable=[]
 
+    # Trovo subito l'interruttore generale, poichè comune a tutti
+    GeneralSwitchTag = "0"
     try:
-        Row = IOData.loc[IOData['SIGNAL DESCRIPTION'].str.contains('400VAC power supply: Disconnector Switch Status') == True]
+        Row = IOData.loc[
+            IOData['SIGNAL DESCRIPTION'].str.contains('400VAC power supply: Disconnector Switch Status') == True]
         GeneralSwitchTag = "\"" + Row['SW TAG'].iat[0] + "\""
     except Exception as e:
         print(e)
 
-    print(GeneralSwitchTag)
+    # Cerco i dati di ogni utenza
+    parDataFilter = ParData.loc[ParData['utenza'].notna()]
 
-    #SEWtable=[]
-    a = ParData.loc[ParData['utenza'].notna()]
-    print(a)
+    for index, Row in parDataFilter.iterrows():
+        # Utenza e Conveyor della riga
+        RowMount = [Row['utenza'], Row['conv']]
 
-    for index,Row in a.iterrows() :
-        print(index,Row['Daisy Chain MCP'])
-        print(type(Row), type(Row['Daisy Chain MCP']))
+        # DP_com del conveyor
+        profinetId = RemoteData['ProfinetId'].loc[RemoteData['ID LINE COMPONENT'] == Row['conv']].iat[0]
+        RowMount.extend([profinetId])
 
-        RowMount = [Row['utenza'],Row['conv']]
+        # Safety Break del conveyor
+        safeBreakTag = signalFound(["SAFETY SWITCH POWER SUPPLY 400V"], Row['conv'])
+        RowMount.extend(safeBreakTag)
 
-        print(math.isnan(Row['Daisy Chain MCP']))
-        if  not math.isnan(Row['Daisy Chain MCP']):
-            print('ok')
+        # Ph1 e Ph2
+        photoTag = signalFound(["Photocell 1", "PHOTOCELL 2"], Row['conv'])
+        RowMount.extend(photoTag)
+
+        # General switch common for all
+        RowMount.extend([GeneralSwitchTag])
+
+        # Trovo in quale Daisy Chain sono
+        daisyNum = 1
+        if not math.isnan(Row['Daisy Chain MCP']):
+            daisyFilter = "MCP_[0-9.,_]"        # Regular Expression per ammettere dopo solo numeri o spazi
+            daisyNum = int(Row['Daisy Chain MCP'])
+        elif not math.isnan(Row['Daisy Chain CAL']):
+            daisyFilter = "MCP_CAL_[0-9.,_]"    # Regular Expression per ammettere dopo solo numeri o spazi
+            daisyNum = int(Row['Daisy Chain CAL'])
         else:
-            print('no ok')
+            raise ValueError('No Daisy for user ' + Row['utenza'] + ' in Row:=' + str(index) + ' , please check again')
+        daisyListSearch = ["400VAC power supply: Status - Daisy Chain "+str(daisyNum),
+                           "400VAC power supply:Circuit Breaker Alarm - Daisy Chain "+str(daisyNum)]
 
+        daisyTag = signalFound(daisyListSearch, daisyFilter)
+        RowMount.extend(daisyTag)
+        SEWtable.append(RowMount)
 
-
-    # InputConvSewMoviGear_DIGIN = pd.DataFrame(, columns=col)
-
-
+    InputConvSewMoviGear_DIGIN = pd.DataFrame(SEWtable, columns=col)
+    return InputConvSewMoviGear_DIGIN

@@ -38,9 +38,9 @@ if __name__ == '__main__':
     ##################################
 
     with ex.pd.ExcelWriter(outPath, mode='w') as writer:
-        # TrunkData-gen Generate and Save
+        # TrunkData-gen Sheet Generate and Save
         ex.trunkTableGen().to_excel(writer, index=False, header=True, sheet_name='TrunkData-gen')
-        # DigIn-TrunkPCT Sheet Sheet Generate
+        # DigIn-TrunkPCT Sheet Generate and Save
         ex.digIn_PctTrunkRegion().to_excel(writer, index=False, header=True, sheet_name='DigIn-TrunkPCT')
-        # GeneralSwitchTag
-        ex.InputCONVEYOR_SEW_MOVIGEAR_Region()
+        # DigIn-ConvInput Sheet Generate and Save
+        ex.InputCONVEYOR_SEW_MOVIGEAR_Region().to_excel(writer, index=False, header=True, sheet_name='DigIn-ConvInput')
