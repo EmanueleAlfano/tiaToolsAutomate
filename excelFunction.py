@@ -110,19 +110,19 @@ def digIn_PctTrunkRegion():
     if TrunkData is None:
         trunkTableGen()
 
-    for trunk in list(TrunkData['TrunkName']):
-        conv = ParData[['conv']].loc[ParData['trunk'] == trunk].loc[ParData['PCT'].notnull()]
+    for index, Row in TrunkData.iterrows():
+        conv = ParData[['conv']].loc[ParData['trunk'] == Row['TrunkName']].loc[ParData['PCT'].notnull()]
 
         # Se il trunk non ha associata una PCT è vuota
         if (len(conv) == 0):
             # print('noPCT')
-            DIGIN_Tr_PCT.append([trunk, 0, 0, 0, 0, 0, "No-Conv"])
+            DIGIN_Tr_PCT.append([Row['TrunkName'], 0, 0, 0, 0, 0, "No-Conv"])
             continue
 
         # Il trunk ha un conveyr e possiamo estrarne i dati
         conv = conv.iat[0, 0]
         try:
-            rowMount = [trunk]
+            rowMount = [Row['TrunkName']]
 
             signalSearch = ["MANUAL/AUTOMATIC", "START PUSH BUTTON", "RESET PUSH BUTTON", "STOP PUSH BUTTON"]
             ret = signalFound(signalSearch, conv)
