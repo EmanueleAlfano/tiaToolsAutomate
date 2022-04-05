@@ -71,7 +71,7 @@ def trunkTableGen():
         # Se il trunk non ha associata una PCT è vuota
         if (len(conv) == 0):
             # print('noPCT')
-            pctConv = trunkShort
+            pctConv = "PCT_" + trunkShort
         else:
             pctConv = conv.iat[0, 0]
 
@@ -97,7 +97,6 @@ def signalFound(descriptionList, IdLINEfilter):
             signalRow = rows.loc[IOData['SIGNAL DESCRIPTION'].str.contains(description) == True]
             tag = "\"" + signalRow['SW TAG'].iat[0] + "\""
         except Exception as e:
-            a = 1
             print("The signal := " + description + " found this problem:\n\t" + str(e))
         swTagList.append(tag)
     return swTagList
