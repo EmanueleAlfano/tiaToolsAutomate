@@ -226,7 +226,7 @@ def DIGOut_LightOut_Region():
         try:
             rowMount = [Row['TrunkName']]
 
-            signalSearch = ['STACK LIGHT - GREEN', 'STACK LIGHT - RED', 'STACK LIGHT - BUZZER',
+            signalSearch = ['STACK LIGHT - BUZZER', 'STACK LIGHT - RED', 'STACK LIGHT - GREEN',
                             'START PUSH BUTTON LIGHT WHITE', 'RESET PUSH BUTTON LIGHT BLUE']
             ret = signalFound(signalSearch, conv)
             rowMount.extend(ret)
