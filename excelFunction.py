@@ -14,13 +14,12 @@ ParData = None
 
 ####################################
 # Generate Here
-# Useful list
-TrunkList = []
 
 # Out data
 TrunkData = None
 TrunkPCT_DIG_IN = None
 InputConvSewMoviGear_DIGIN = None
+DIGOut_Light = None
 
 
 def sheetLoad(IOexcelPath, parametricExcelPath):
@@ -56,21 +55,35 @@ def sheetLoad(IOexcelPath, parametricExcelPath):
         ['conv', 'utenza', 'trunk', 'Linea', 'tipo', 'Daisy Chain MCP', 'Daisy Chain CAL', 'PCT', 'IsConveyor',
          'Id_Obj']]
 
-    TrunkList = list(ParSheet['trunk'].drop_duplicates(keep='first'))
-
 
 def trunkTableGen():
     global ParData, TrunkData
+    TrunkList = list(ParData['trunk'].drop_duplicates(keep='first'))
     trunk3D = []
     for i in TrunkList:
         trunktmp = (re.split('(\d+)', i)[0:-1])
-        num = ParData[['IsConveyor', 'trunk']].loc[ParData['trunk'] == i].loc[ParData['IsConveyor'] == True]
-        a = (trunktmp[0] + '_' + "%03d" % int(trunktmp[1]))  # Trunk_000 Format
-        b = (trunktmp[0] + str(int(trunktmp[1])))  # Trunk0    Format
-        c = (len(num))  # Conveyor Count in Trunk
-        trunk3D.append([a, b, c])
 
-    TrunkData = pd.DataFrame(trunk3D, columns=['TrunkLongName', 'TrunkName', 'N_conv'])
+        # Trunk# Format
+        trunkShort = (trunktmp[0] + str(int(trunktmp[1])))
+
+        # Trovo il conveyor associato alla PCT
+        conv = ParData[['conv']].loc[ParData['trunk'] == trunkShort].loc[ParData['PCT'].notnull()]
+        # Se il trunk non ha associata una PCT è vuota
+        if (len(conv) == 0):
+            # print('noPCT')
+            pctConv = trunkShort
+        else:
+            pctConv = conv.iat[0, 0]
+
+        # Trunk_### Format
+        trunkLong = (trunktmp[0] + '_' + "%03d" % int(trunktmp[1]))
+
+        # Conveyor Count in Trunk
+        num = len(ParData[['conv', 'IsConveyor', 'trunk']].loc[ParData['trunk'] == i].loc[ParData['IsConveyor'] == True])
+
+        trunk3D.append([pctConv, trunkShort, trunkLong, num])
+
+    TrunkData = pd.DataFrame(trunk3D, columns=['conv-PCT','TrunkName', 'TrunkLongName', 'N_conv'])
     return TrunkData
 
 
@@ -84,7 +97,8 @@ def signalFound(descriptionList, IdLINEfilter):
             signalRow = rows.loc[IOData['SIGNAL DESCRIPTION'].str.contains(description) == True]
             tag = "\"" + signalRow['SW TAG'].iat[0] + "\""
         except Exception as e:
-            print(e)
+            a = 1
+            print("The signal := " + description + " found this problem:\n\t" + str(e))
         swTagList.append(tag)
     return swTagList
 
@@ -135,7 +149,7 @@ def InputCONVEYOR_SEW_MOVIGEAR_Region():
     col = ['utenza', 'conveyor', 'DP_com', 'safetyBreak', 'Ph1', 'Ph2', 'GeneralSwitch', 'DaisyChainStatus',
            'DaisyChainAllarm']
 
-    SEWtable=[]
+    SEWtable = []
 
     # Trovo subito l'interruttore generale, poichè comune a tutti
     GeneralSwitchTag = "0"
@@ -171,15 +185,15 @@ def InputCONVEYOR_SEW_MOVIGEAR_Region():
         # Trovo in quale Daisy Chain sono
         daisyNum = 1
         if not math.isnan(Row['Daisy Chain MCP']):
-            daisyFilter = "MCP_[0-9.,_]"        # Regular Expression per ammettere dopo solo numeri o spazi
+            daisyFilter = "MCP_[0-9.,_]"  # Regular Expression per ammettere dopo solo numeri o spazi
             daisyNum = int(Row['Daisy Chain MCP'])
         elif not math.isnan(Row['Daisy Chain CAL']):
-            daisyFilter = "MCP_CAL_[0-9.,_]"    # Regular Expression per ammettere dopo solo numeri o spazi
+            daisyFilter = "MCP_CAL_[0-9.,_]"  # Regular Expression per ammettere dopo solo numeri o spazi
             daisyNum = int(Row['Daisy Chain CAL'])
         else:
             raise ValueError('No Daisy for user ' + Row['utenza'] + ' in Row:=' + str(index) + ' , please check again')
-        daisyListSearch = ["400VAC power supply: Status - Daisy Chain "+str(daisyNum),
-                           "400VAC power supply:Circuit Breaker Alarm - Daisy Chain "+str(daisyNum)]
+        daisyListSearch = ["400VAC power supply: Status - Daisy Chain " + str(daisyNum),
+                           "400VAC power supply:Circuit Breaker Alarm - Daisy Chain " + str(daisyNum)]
 
         daisyTag = signalFound(daisyListSearch, daisyFilter)
         RowMount.extend(daisyTag)
@@ -187,3 +201,42 @@ def InputCONVEYOR_SEW_MOVIGEAR_Region():
 
     InputConvSewMoviGear_DIGIN = pd.DataFrame(SEWtable, columns=col)
     return InputConvSewMoviGear_DIGIN
+
+
+def DIGOut_LightOut_Region():
+    global ParData, RemoteData, IOData, TrunkData, DIGOut_Light
+    col = ['trunk', 'buzzer', 'red', 'green', 'white', 'blue', 'conv']
+
+    DIGOut_Tr_PCT = []
+
+    if TrunkData is None:
+        trunkTableGen()
+
+    # for trunk in list(TrunkData['TrunkName']):
+    for index, Row in TrunkData.iterrows():
+        conv = ParData[['conv']].loc[ParData['trunk'] == Row['TrunkName']].loc[ParData['PCT'].notnull()]
+
+        # Se il trunk non ha associata una PCT è vuota
+        if (len(conv) == 0):
+            # print('noPCT')
+            DIGOut_Tr_PCT.append([Row['TrunkName'], 0, 0, 0, 0, 0, "No-Conv"])
+            continue
+
+        conv = conv.iat[0, 0]
+        try:
+            rowMount = [Row['TrunkName']]
+
+            signalSearch = ['STACK LIGHT - GREEN', 'STACK LIGHT - RED', 'STACK LIGHT - BUZZER',
+                            'START PUSH BUTTON LIGHT WHITE', 'RESET PUSH BUTTON LIGHT BLUE']
+            ret = signalFound(signalSearch, conv)
+            rowMount.extend(ret)
+
+            rowMount.extend([conv])
+
+            DIGOut_Tr_PCT.append(rowMount)
+        except Exception as e:
+            print(e)
+
+    # Creazione digIn_PctTrunkRegion table
+    DIGOut_Light = pd.DataFrame(DIGOut_Tr_PCT, columns=col)
+    return DIGOut_Light
