@@ -98,9 +98,8 @@ def signalFound(descriptionList, IdLINEfilter, defaultTag="FALSE"):
             signalRow = rows.loc[IOData['SIGNAL DESCRIPTION'].str.contains(description) == True]
             tag = "\"" + signalRow['SW TAG'].iat[0] + "\""
         except Exception as e:
-            a = 1
             if type(e) == IndexError:
-                print("SwTag of := ('" + description + "'; '" + IdLINEfilter + "') Not found, please Check.")
+                print("[signalFound] SwTag of := ('" + description + "'; '" + IdLINEfilter + "') Not found, please Check.")
             else:
                 print("[signalFound] unexpected error: " + str(e))
         swTagList.append(tag)
@@ -121,7 +120,9 @@ def digIn_PctTrunkRegion():
         # Se il trunk non ha associata una PCT è vuota
         if (len(conv) == 0):
             # print('noPCT')
-            DIGIN_Tr_PCT.append([Row['TrunkName'], notFoundTag, notFoundTag, notFoundTag, notFoundTag, notFoundTag, "No-Conv"])
+            DIGIN_Tr_PCT.append(
+                [Row['TrunkName'], notFoundTag, notFoundTag, notFoundTag, notFoundTag, notFoundTag, "No-Conv"])
+            print("[digIn_PctTrunkRegion] PCT of '" + Row['TrunkName'] + "' Not found, please Check.")
             continue
 
         # Il trunk ha un conveyr e possiamo estrarne i dati
@@ -162,8 +163,10 @@ def InputCONVEYOR_SEW_MOVIGEAR_Region():
             IOData['SIGNAL DESCRIPTION'].str.contains('400VAC power supply: Disconnector Switch Status') == True]
         GeneralSwitchTag = "\"" + Row['SW TAG'].iat[0] + "\""
     except Exception as e:
-        print(e)
-
+        if type(e) == IndexError:
+            print("[InputCONVEYOR_SEW_MOVIGEAR_Region] '400VAC power supply: Disconnector Switch Status' Not found, please Check.")
+        else:
+            print("[InputCONVEYOR_SEW_MOVIGEAR_Region] unexpected error: " + str(e))
     # Cerco i dati di ogni utenza
     parDataFilter = ParData.loc[ParData['utenza'].notna()]
 
@@ -223,7 +226,9 @@ def DIGOut_LightOut_Region():
         # Se il trunk non ha associata una PCT è vuota
         if (len(conv) == 0):
             # print('noPCT')
-            DIGOut_Tr_PCT.append([Row['TrunkName'], notFoundTag, notFoundTag, notFoundTag, notFoundTag, notFoundTag, "No-Conv"])
+            DIGOut_Tr_PCT.append(
+                [Row['TrunkName'], notFoundTag, notFoundTag, notFoundTag, notFoundTag, notFoundTag, "No-Conv"])
+            print("[DIGOut_LightOut_Region] PCT of '" + Row['TrunkName'] + "' Not found, please Check.")
             continue
 
         conv = conv.iat[0, 0]
