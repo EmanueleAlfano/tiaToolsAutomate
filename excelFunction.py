@@ -79,25 +79,30 @@ def trunkTableGen():
         trunkLong = (trunktmp[0] + '_' + "%03d" % int(trunktmp[1]))
 
         # Conveyor Count in Trunk
-        num = len(ParData[['conv', 'IsConveyor', 'trunk']].loc[ParData['trunk'] == i].loc[ParData['IsConveyor'] == True])
+        num = len(
+            ParData[['conv', 'IsConveyor', 'trunk']].loc[ParData['trunk'] == i].loc[ParData['IsConveyor'] == True])
 
         trunk3D.append([pctConv, trunkShort, trunkLong, num])
 
-    TrunkData = pd.DataFrame(trunk3D, columns=['conv-PCT','TrunkName', 'TrunkLongName', 'N_conv'])
+    TrunkData = pd.DataFrame(trunk3D, columns=['conv-PCT', 'TrunkName', 'TrunkLongName', 'N_conv'])
     return TrunkData
 
 
-def signalFound(descriptionList, IdLINEfilter):
+def signalFound(descriptionList, IdLINEfilter, defaultTag="FALSE"):
     global IOData
     swTagList = []
     rows = IOData.loc[IOData['ID LINE COMPONENT'].str.contains(IdLINEfilter) == True]
     for description in descriptionList:
-        tag = "0"
+        tag = defaultTag
         try:
             signalRow = rows.loc[IOData['SIGNAL DESCRIPTION'].str.contains(description) == True]
             tag = "\"" + signalRow['SW TAG'].iat[0] + "\""
         except Exception as e:
-            print("The signal := " + description + " found this problem:\n\t" + str(e))
+            a = 1
+            if type(e) == IndexError:
+                print("SwTag of := ('" + description + "'; '" + IdLINEfilter + "') Not found, please Check.")
+            else:
+                print("[signalFound] unexpected error: " + str(e))
         swTagList.append(tag)
     return swTagList
 
@@ -106,7 +111,7 @@ def digIn_PctTrunkRegion():
     global ParData, RemoteData, TrunkData, TrunkPCT_DIG_IN
     col = ['trunk', 'SelAuto', 'Jog', 'Reset', 'Stop', 'DP_com', 'conv']
     DIGIN_Tr_PCT = []
-
+    notFoundTag = "FALSE"
     if TrunkData is None:
         trunkTableGen()
 
@@ -116,7 +121,7 @@ def digIn_PctTrunkRegion():
         # Se il trunk non ha associata una PCT è vuota
         if (len(conv) == 0):
             # print('noPCT')
-            DIGIN_Tr_PCT.append([Row['TrunkName'], 0, 0, 0, 0, 0, "No-Conv"])
+            DIGIN_Tr_PCT.append([Row['TrunkName'], notFoundTag, notFoundTag, notFoundTag, notFoundTag, notFoundTag, "No-Conv"])
             continue
 
         # Il trunk ha un conveyr e possiamo estrarne i dati
@@ -171,7 +176,7 @@ def InputCONVEYOR_SEW_MOVIGEAR_Region():
         RowMount.extend([profinetId])
 
         # Safety Break del conveyor
-        safeBreakTag = signalFound(["SAFETY SWITCH POWER SUPPLY 400V"], Row['conv'])
+        safeBreakTag = signalFound(["SAFETY SWITCH POWER SUPPLY 400V"], Row['conv'], "TRUE")
         RowMount.extend(safeBreakTag)
 
         # Ph1 e Ph2
@@ -205,7 +210,7 @@ def InputCONVEYOR_SEW_MOVIGEAR_Region():
 def DIGOut_LightOut_Region():
     global ParData, RemoteData, IOData, TrunkData, DIGOut_Light
     col = ['trunk', 'buzzer', 'red', 'green', 'white', 'blue', 'conv']
-
+    notFoundTag = "// \"NotFoundTag\""
     DIGOut_Tr_PCT = []
 
     if TrunkData is None:
@@ -218,7 +223,7 @@ def DIGOut_LightOut_Region():
         # Se il trunk non ha associata una PCT è vuota
         if (len(conv) == 0):
             # print('noPCT')
-            DIGOut_Tr_PCT.append([Row['TrunkName'], 0, 0, 0, 0, 0, "No-Conv"])
+            DIGOut_Tr_PCT.append([Row['TrunkName'], notFoundTag, notFoundTag, notFoundTag, notFoundTag, notFoundTag, "No-Conv"])
             continue
 
         conv = conv.iat[0, 0]
@@ -227,7 +232,7 @@ def DIGOut_LightOut_Region():
 
             signalSearch = ['STACK LIGHT - BUZZER', 'STACK LIGHT - RED', 'STACK LIGHT - GREEN',
                             'START PUSH BUTTON LIGHT WHITE', 'RESET PUSH BUTTON LIGHT BLUE']
-            ret = signalFound(signalSearch, conv)
+            ret = signalFound(signalSearch, conv, notFoundTag)
             rowMount.extend(ret)
 
             rowMount.extend([conv])
