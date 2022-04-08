@@ -1,6 +1,7 @@
 import math
 
 import pandas as pd
+import utilsLib
 import re
 
 ####################################
@@ -99,7 +100,8 @@ def signalFound(descriptionList, IdLINEfilter, defaultTag="FALSE"):
             tag = "\"" + signalRow['SW TAG'].iat[0] + "\""
         except Exception as e:
             if type(e) == IndexError:
-                print("[signalFound] SwTag of := ('" + description + "'; '" + IdLINEfilter + "') Not found, please Check.")
+                print(
+                    "[signalFound] SwTag of := ('" + description + "'; '" + IdLINEfilter + "') Not found, please Check.")
             else:
                 print("[signalFound] unexpected error: " + str(e))
         swTagList.append(tag)
@@ -148,10 +150,52 @@ def digIn_PctTrunkRegion():
     return TrunkPCT_DIG_IN
 
 
+def get_trailing_numberOfSeries(s):
+    for ind, value in s.iteritems():
+        m = re.search(r'\d+$', value)
+        s.update(pd.Series([int(m.group()) if m else None], index=[ind]))
+    return s
+
+
+def pctStopMemValue(utenza, trunk):
+    global ParData
+    # Filtro le righe che sono conveyor
+    convRows = ParData.loc[ParData['IsConveyor'] == True]
+    convRowsSort = convRows.sort_values(by='utenza', key=lambda elem: get_trailing_numberOfSeries(elem))
+    convRowsSort.reset_index(drop=True)
+
+    # Testo Primo Assoluto e Ultimo Assoluto
+    if convRowsSort.iloc[0]['utenza'] == utenza:
+        return "FALSE"  # First Assoluto
+    elif (convRowsSort.iloc[-1]['utenza'] == utenza):
+        return "FALSE"  # Last Assoluto
+
+    # Calcolo i potenziali Trunk_Next e Trunk_Prev
+    myTrunkRows = convRowsSort.loc[convRowsSort['trunk'] == trunk]
+    myTrunkRows.reset_index(drop=True)
+
+    indexMyTrunkRow = TrunkData.index[TrunkData['TrunkName'] == trunk][0]
+    prevTrunk = "\"" + TrunkData['TrunkName'].iloc[max(indexMyTrunkRow - 1, 0)] + "\".StopPctMem"
+    nextTrunk = "\"" + TrunkData['TrunkName'].iloc[min(indexMyTrunkRow + 1, len(TrunkData) - 1)] + "\".StopPctMem"
+
+    # In base alla logica di confine, compongo il codice
+    numRow = len(myTrunkRows)
+    if numRow == 1:
+        return prevTrunk + " OR " + nextTrunk  # Or di Entrambi
+    if myTrunkRows.iloc[0]['utenza'] == utenza:
+        return prevTrunk  # First tronco
+    if myTrunkRows.iloc[-1]['utenza'] == utenza:
+        return nextTrunk  # Last tronco"
+
+    # Conveyor interno a un tronco (Non su confine)
+    return "FALSE"  # Nessuno
+
+
 def InputCONVEYOR_SEW_MOVIGEAR_Region():
     global ParData, RemoteData, IOData, InputConvSewMoviGear_DIGIN
     # Ph= fotocellula
-    col = ['utenza', 'conveyor', 'DP_com', 'safetyBreak', 'Ph1', 'Ph2', 'GeneralSwitch', 'DaisyChainStatus',
+    col = ['utenza', 'conveyor', 'DP_com', 'safetyBreak', 'pctStopMem', 'Ph1', 'Ph2', 'GeneralSwitch',
+           'DaisyChainStatus',
            'DaisyChainAllarm']
 
     SEWtable = []
@@ -164,7 +208,8 @@ def InputCONVEYOR_SEW_MOVIGEAR_Region():
         GeneralSwitchTag = "\"" + Row['SW TAG'].iat[0] + "\""
     except Exception as e:
         if type(e) == IndexError:
-            print("[InputCONVEYOR_SEW_MOVIGEAR_Region] '400VAC power supply: Disconnector Switch Status' Not found, please Check.")
+            print(
+                "[InputCONVEYOR_SEW_MOVIGEAR_Region] '400VAC power supply: Disconnector Switch Status' Not found, please Check.")
         else:
             print("[InputCONVEYOR_SEW_MOVIGEAR_Region] unexpected error: " + str(e))
     # Cerco i dati di ogni utenza
@@ -181,6 +226,10 @@ def InputCONVEYOR_SEW_MOVIGEAR_Region():
         # Safety Break del conveyor
         safeBreakTag = signalFound(["SAFETY SWITCH POWER SUPPLY 400V"], Row['conv'], "TRUE")
         RowMount.extend(safeBreakTag)
+
+        # creazione colonna pctStopMem
+        pctStopMemReplace = pctStopMemValue(Row['utenza'], Row['trunk'])
+        RowMount.extend([pctStopMemReplace])
 
         # Ph1 e Ph2
         photoTag = signalFound(["Photocell 1", "PHOTOCELL 2"], Row['conv'])

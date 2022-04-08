@@ -9,7 +9,7 @@ outPath = "filledList-gen.txt"
 def help():
     print("Error argv, argument passed was:")
     print(sys.argv)
-    print("Correct usage:\n\tfindReplace <baseText> <findReplaceList.txt path> [out.txt path]")
+    print("Correct usage:\n\tlistFiller.py <baseText> <findReplaceList.txt path> [out.txt path]")
     print("findReplaceList.txt := First Columns DifferentName; Second Columns have to contain at the end of the string the index")
     exit(-1)
 
