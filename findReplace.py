@@ -13,7 +13,6 @@ def help():
     exit(-1)
 
 
-
 if __name__ == '__main__':
     # Input Read
     if (len(sys.argv) < 3):

@@ -47,6 +47,7 @@ def sheetLoadIO(IOexcelPath):
     IOData = IOSheet[['ID LINE COMPONENT', 'SW TAG', 'SIGNAL DESCRIPTION', 'I/O ADDR']]
     IOData.dropna().reset_index(drop=True)
 
+
 def sheetLoadParamExcel(parametricExcelPath):
     global ParData
     #########################
@@ -94,7 +95,8 @@ def trunkTableGen():
 def signalFound(descriptionList, IdLINEfilter, defaultTag="FALSE", ioAddrFilter="\w"):
     global IOData
     swTagList = []
-    rows = IOData.loc[IOData['ID LINE COMPONENT'].str.contains(IdLINEfilter) == True].loc[IOData['I/O ADDR'].str.contains(ioAddrFilter) == True]
+    rows = IOData.loc[IOData['ID LINE COMPONENT'].str.contains(IdLINEfilter) == True].loc[
+        IOData['I/O ADDR'].str.contains(ioAddrFilter) == True]
     for description in descriptionList:
         tag = defaultTag
         try:
@@ -145,7 +147,9 @@ def digIn_PctTrunkRegion():
 
             DIGIN_Tr_PCT.append(rowMount)
         except Exception as e:
-            print("[digIn_PctTrunkRegion] During extraction data of conveyor:='"+conv+"' reach unexpected error: "+str(e))
+            print(
+                "[digIn_PctTrunkRegion] During extraction data of conveyor:='" + conv + "' reach unexpected error: " +
+                str(e))
 
     # Creazione digIn_PctTrunkRegion table
     TrunkPCT_DIG_IN = pd.DataFrame(DIGIN_Tr_PCT, columns=col)
