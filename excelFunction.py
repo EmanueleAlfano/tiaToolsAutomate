@@ -145,7 +145,7 @@ def digIn_PctTrunkRegion():
 
             DIGIN_Tr_PCT.append(rowMount)
         except Exception as e:
-            print(e)
+            print("[digIn_PctTrunkRegion] During extraction data of conveyor:='"+conv+"' reach unexpected error: "+str(e))
 
     # Creazione digIn_PctTrunkRegion table
     TrunkPCT_DIG_IN = pd.DataFrame(DIGIN_Tr_PCT, columns=col)
