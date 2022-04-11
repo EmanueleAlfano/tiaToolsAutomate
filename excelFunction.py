@@ -23,8 +23,8 @@ InputConvSewMoviGear_DIGIN = None
 DIGOut_Light = None
 
 
-def sheetLoad(IOexcelPath, parametricExcelPath):
-    global RemoteData, IOData, ParData, TrunkList
+def sheetLoadIO(IOexcelPath):
+    global RemoteData, IOData
     #####################
     # Remote sheet Load #
     #####################
@@ -47,6 +47,8 @@ def sheetLoad(IOexcelPath, parametricExcelPath):
     IOData = IOSheet[['ID LINE COMPONENT', 'SW TAG', 'SIGNAL DESCRIPTION', 'I/O ADDR']]
     IOData.dropna().reset_index(drop=True)
 
+def sheetLoadParamExcel(parametricExcelPath):
+    global ParData
     #########################
     # Parametric Sheet Load #
     #########################
@@ -89,10 +91,10 @@ def trunkTableGen():
     return TrunkData
 
 
-def signalFound(descriptionList, IdLINEfilter, defaultTag="FALSE"):
+def signalFound(descriptionList, IdLINEfilter, defaultTag="FALSE", ioAddrFilter="\w"):
     global IOData
     swTagList = []
-    rows = IOData.loc[IOData['ID LINE COMPONENT'].str.contains(IdLINEfilter) == True]
+    rows = IOData.loc[IOData['ID LINE COMPONENT'].str.contains(IdLINEfilter) == True].loc[IOData['I/O ADDR'].str.contains(ioAddrFilter) == True]
     for description in descriptionList:
         tag = defaultTag
         try:

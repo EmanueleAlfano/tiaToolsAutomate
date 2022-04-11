@@ -2,7 +2,6 @@
 
 # programma per leggere su un excel e poi fare una query sullo stesso e scriverlo su un nuovo foglio excel
 # parametricData costruzione del file excel dal word specifico del PLC di nostro interesse
-# pip3 install dipendenza di pandas pip3 install pandas
 # pip3 install pandas openpyxl
 
 
@@ -18,6 +17,7 @@ def help():
     print("Error argv, argument passed was:")
     print(sys.argv)
     print("Correct usage:\n\ttableCompiling.py <IOExcel.xls path> <parametricExcel.xls path> [out.xls path]")
+    print("To install dependence: \n pip3 install pandas openpyxl")
     exit(-1)
 
 
@@ -31,7 +31,8 @@ if __name__ == '__main__':
         outPath = sys.argv[3]
 
     # Sheet Data Load
-    ex.sheetLoad(IOexcelPath, ParExcelPath)
+    ex.sheetLoadIO(IOexcelPath)
+    ex.sheetLoadParamExcel(ParExcelPath)
 
     ##################################
     # Table Generation and Save Zone #
