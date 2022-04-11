@@ -197,7 +197,7 @@ def pctStopMemValue(utenza, trunk):
     return "FALSE"  # Nessuno
 
 
-def InputCONVEYOR_SEW_MOVIGEAR_Region():
+def DigIn_ConvInput_Region():
     global ParData, RemoteData, IOData, InputConvSewMoviGear_DIGIN
     # Ph= fotocellula
     col = ['utenza', 'conveyor', 'DP_com', 'safetyBreak', 'pctStopMem', 'Ph1', 'Ph2', 'GeneralSwitch',
@@ -261,7 +261,8 @@ def InputCONVEYOR_SEW_MOVIGEAR_Region():
         RowMount.extend(daisyTag)
         SEWtable.append(RowMount)
 
-    InputConvSewMoviGear_DIGIN = pd.DataFrame(SEWtable, columns=col)
+    InputConvSewMoviGear_DIGIN_unorder = pd.DataFrame(SEWtable, columns=col)
+    InputConvSewMoviGear_DIGIN = InputConvSewMoviGear_DIGIN_unorder.sort_values(by='utenza', key=lambda elem: get_trailing_numberOfSeries(elem))
     return InputConvSewMoviGear_DIGIN
 
 

@@ -44,6 +44,6 @@ if __name__ == '__main__':
         # DigIn-TrunkPCT Sheet Generate and Save
         ex.digIn_PctTrunkRegion().to_excel(writer, index=False, header=True, sheet_name='DigIn-TrunkPCT')
         # DigIn-ConvInput Sheet Generate and Save
-        ex.InputCONVEYOR_SEW_MOVIGEAR_Region().to_excel(writer, index=False, header=True, sheet_name='DigIn-ConvInput')
+        ex.DigIn_ConvInput_Region().to_excel(writer, index=False, header=True, sheet_name='DigIn-ConvInput')
         # DigIn-ConvInput Sheet Generate and Save
         ex.DIGOut_LightOut_Region().to_excel(writer, index=False, header=True, sheet_name='DigOut-LightOutput')
