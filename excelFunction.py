@@ -226,7 +226,16 @@ def DigIn_ConvInput_Region():
         RowMount = [Row['utenza'], Row['conv']]
 
         # DP_com del conveyor
-        profinetId = RemoteData['ProfinetId'].loc[RemoteData['ID LINE COMPONENT'] == Row['conv']][0]
+        profinetId = 0
+        try:
+            profinetId = RemoteData['ProfinetId'].loc[RemoteData['ID LINE COMPONENT'] == Row['conv']].iat[0]
+        except Exception as e:
+            if type(e) == IndexError:
+                print(
+                    "[InputCONVEYOR_SEW_MOVIGEAR_Region] the conveyoer :'"+Row['conv']+"Not found in 'Remote List', please Check.")
+            else:
+                print("[InputCONVEYOR_SEW_MOVIGEAR_Region] unexpected error: " + str(e))
+
         RowMount.extend([profinetId])
 
         # Safety Break del conveyor
