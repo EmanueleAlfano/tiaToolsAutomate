@@ -167,7 +167,12 @@ def pctStopMemValue(utenza, trunk):
     global ParData
     # Filtro le righe che sono conveyor
     convRows = ParData.loc[ParData['IsConveyor'] == True]
-    convRowsSort = convRows.sort_values(by='utenza', key=lambda elem: get_trailing_numberOfSeries(elem))
+    convRowsSort = convRows.sort_values(by='utenza', key=lambda colums: get_trailing_numberOfSeries(colums))
+
+    # Se sono macchine speciali, hanno utenza > 500, quindi le filtro
+    convRowsSort = convRowsSort[
+        convRowsSort.apply(lambda row: utilsLib.get_trailing_number(row['utenza']) <= 500, axis=1)]
+
     convRowsSort.reset_index(drop=True)
 
     # Testo Primo Assoluto e Ultimo Assoluto
