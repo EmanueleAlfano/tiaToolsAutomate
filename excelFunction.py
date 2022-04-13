@@ -226,7 +226,7 @@ def DigIn_ConvInput_Region():
         RowMount = [Row['utenza'], Row['conv']]
 
         # DP_com del conveyor
-        profinetId = RemoteData['ProfinetId'].loc[RemoteData['ID LINE COMPONENT'] == Row['conv']].iat[0]
+        profinetId = RemoteData['ProfinetId'].loc[RemoteData['ID LINE COMPONENT'] == Row['conv']][0]
         RowMount.extend([profinetId])
 
         # Safety Break del conveyor
