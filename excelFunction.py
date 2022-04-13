@@ -95,12 +95,12 @@ def trunkTableGen():
 def signalFound(descriptionList, IdLINEfilter, defaultTag="FALSE", ioAddrFilter="\w"):
     global IOData
     swTagList = []
-    rows = IOData.loc[IOData['ID LINE COMPONENT'].str.contains(IdLINEfilter) == True].loc[
+    rows = IOData.loc[IOData['ID LINE COMPONENT'].str.contains(IdLINEfilter, case=False) == True].loc[
         IOData['I/O ADDR'].str.contains(ioAddrFilter) == True]
     for description in descriptionList:
         tag = defaultTag
         try:
-            signalRow = rows.loc[IOData['SIGNAL DESCRIPTION'].str.contains(description) == True]
+            signalRow = rows.loc[IOData['SIGNAL DESCRIPTION'].str.contains(description, case=False) == True]
             tag = "\"" + signalRow['SW TAG'].iat[0] + "\""
         except Exception as e:
             if type(e) == IndexError:
@@ -232,7 +232,8 @@ def DigIn_ConvInput_Region():
         except Exception as e:
             if type(e) == IndexError:
                 print(
-                    "[InputCONVEYOR_SEW_MOVIGEAR_Region] the conveyoer :'"+Row['conv']+"Not found in 'Remote List', please Check.")
+                    "[InputCONVEYOR_SEW_MOVIGEAR_Region] the conveyoer :'" + Row[
+                        'conv'] + "' was not found in 'Remote List', please Check.")
             else:
                 print("[InputCONVEYOR_SEW_MOVIGEAR_Region] unexpected error: " + str(e))
 
@@ -247,7 +248,7 @@ def DigIn_ConvInput_Region():
         RowMount.extend([pctStopMemReplace])
 
         # Ph1 e Ph2
-        photoTag = signalFound(["Photocell 1", "PHOTOCELL 2"], Row['conv'])
+        photoTag = signalFound(["Photocell 1", "Photocell 2"], Row['conv'])
         RowMount.extend(photoTag)
 
         # General switch common for all
@@ -263,7 +264,8 @@ def DigIn_ConvInput_Region():
             daisyNum = int(Row['Daisy Chain CAL'])
         else:
             print('No Daisy for user ' + Row['utenza'] + ' in Row:=' + str(index) + ' , please check again')
-            daisyNum = 0 # Non troverà nula e metterà false
+            daisyNum = 0  # Non troverà nula e metterà false
+
         daisyListSearch = ["400VAC power supply: Status - Daisy Chain " + str(daisyNum),
                            "400VAC power supply:Circuit Breaker Alarm - Daisy Chain " + str(daisyNum)]
 
@@ -272,7 +274,8 @@ def DigIn_ConvInput_Region():
         SEWtable.append(RowMount)
 
     InputConvSewMoviGear_DIGIN_unorder = pd.DataFrame(SEWtable, columns=col)
-    InputConvSewMoviGear_DIGIN = InputConvSewMoviGear_DIGIN_unorder.sort_values(by='utenza', key=lambda elem: get_trailing_numberOfSeries(elem))
+    InputConvSewMoviGear_DIGIN = InputConvSewMoviGear_DIGIN_unorder.sort_values(by='utenza', key=lambda
+        elem: get_trailing_numberOfSeries(elem))
     return InputConvSewMoviGear_DIGIN
 
 
