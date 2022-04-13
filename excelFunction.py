@@ -253,11 +253,12 @@ def DigIn_ConvInput_Region():
             daisyFilter = "MCP_CAL_[0-9.,_]"  # Regular Expression per ammettere dopo solo numeri o spazi
             daisyNum = int(Row['Daisy Chain CAL'])
         else:
-            raise ValueError('No Daisy for user ' + Row['utenza'] + ' in Row:=' + str(index) + ' , please check again')
+            print('No Daisy for user ' + Row['utenza'] + ' in Row:=' + str(index) + ' , please check again')
+            daisyNum = 0 # Non troverà nula e metterà false
         daisyListSearch = ["400VAC power supply: Status - Daisy Chain " + str(daisyNum),
                            "400VAC power supply:Circuit Breaker Alarm - Daisy Chain " + str(daisyNum)]
 
-        daisyTag = signalFound(daisyListSearch, daisyFilter)
+        daisyTag = signalFound(daisyListSearch, daisyFilter, defaultTag="TRUE")
         RowMount.extend(daisyTag)
         SEWtable.append(RowMount)
 
