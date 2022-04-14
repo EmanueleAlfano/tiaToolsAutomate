@@ -17,5 +17,6 @@ if test "$#" -ge 3; then
 fi
 
 echo "Script will copy all sub file from '$from', to '$to', with extension $ext"
+mkdir -p $to
 
 find "$from" -type f -name "*.$ext" -exec cp {} "$to" \;
